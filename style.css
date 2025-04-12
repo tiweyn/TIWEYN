@@ -1,0 +1,46 @@
+/* Основной стиль */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("bg-large.webp");
+  background-color: black;
+  background-size: 1600px auto; /* фиксируем ширину */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: scroll; /* фон движется со страницей */
+  min-height: 3000px; /* прокрутка */
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Контент */
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+/* 4K экраны */
+@media (min-width: 1921px) {
+  body {
+    background-image: url("bg-xlarge.webp");
+    background-size: 2560px auto;
+  }
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+  body {
+    background-image: url("bg-medium.webp");
+    background-size: 1024px auto;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 600px) {
+  body {
+    background-image: url("bg-small.webp");
+    background-size: 480px auto;
+  }
+}
