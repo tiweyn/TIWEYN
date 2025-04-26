@@ -1,0 +1,70 @@
+/* Общий стиль */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  background-image: url("bg-large.webp");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 3000px;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+/* Контент */
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+/* Сетка с 4 колонками (уже на мобилке) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Картинка на мобилке — центрируется (2-я и 3-я колонка) */
+.mobile-img {
+  grid-column: 2 / span 4;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 📱 Мобильные устройства */
+@media (max-width: 600px) {
+  body {
+    background-image: url("bg-small.webp");
+  }
+}
+
+/* 📟 Планшеты */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-image: url("bg-medium.webp");
+  }
+
+  /* Прячем мобильную картинку */
+  .mobile-img {
+    display: none;
+  }
+}
+
+/* 🖥 4K и широкоформатные */
+@media (min-width: 1921px) {
+  body {
+    background-image: url("bg-xlarge.webp");
+  }
+
+  /* Прячем мобильную картинку */
+  .mobile-img {
+    display: none;
+  }
+}
