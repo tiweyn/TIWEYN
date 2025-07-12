@@ -1,0 +1,184 @@
+/* Общий стиль */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  background-image: url("bg-large.webp");
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 100hv;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+.row {
+  margin-top: 15px;
+}
+
+.sticky-paper {
+  position: fixed;   /* прикреплено к экрану */
+  top: 0px;         /* отступ сверху */
+  right: 0px;       /* отступ справа */
+  width: 40%;      /* ширина листка */
+  height: auto;      /* пусть высота сама подбирается */
+  z-index: 9999;     /* поверх всего */
+}
+.sticky-paper img {
+  width: 100%;       /* растягиваем картинку на весь контейнер */
+  display: block;    /* убираем отступы снизу */
+}
+
+.contacts {
+  position: absolute;          /* размещаем блок поверх листа */
+  top: 37px;                   /* отступ сверху */
+  right:3px;                  /* отступ справа от окна/родителя */
+  display: flex;               /* делаем контейнер flex — для расположения элементов */
+  flex-direction: column;      /* элементы идут вертикально — в столбик */
+  justify-content: flex-start; /* прижимаем элементы к верху контейнера */
+  align-items: flex-end;       /* прижимаем элементы внутри к правому краю контейнера */
+  gap: 7px;                   /* расстояние между элементами (ссылками) */
+  width: 42%;                  /*чтобы ширина подстраивалась по содержимому */
+  margin-top: 5px;
+  /*border: 1px solid red;
+  background: rgba(255,0,0,0.1);
+  width: 42%; чтобы ширина подстраивалась по содержимому */
+}
+.contacts img {
+  width: 32%;  /* фиксированный размер для всех изображений */
+  height: auto;  /* сохраняем пропорции */
+}
+
+.contacts a {
+  display: flex;               /* внутри каждой ссылки flex — иконка и текст в ряд */
+  flex-direction: row;         /* иконка слева, текст справа */
+  align-items: center;         /* выравниваем иконку и текст по вертикали */
+  text-decoration: none;       /* убираем подчеркивание у ссылок */
+  color: #0044cc;              /* синий цвет текста */
+  font-size: 17px;             /* размер шрифта */
+  gap: 3px;                    /* расстояние между иконкой и текстом */
+}
+
+#poster .carousel-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#poster .carousel-frame {
+  /* Твои текущие правила */
+  width: 90%;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.posters {
+  position: relative;      /* чтобы внутри позиционировать абсолютом */
+  max-width: 720px;        /* можно подстроить под твой дизайн */
+  margin: 0 auto;          /* центрирует блок по горизонтали */
+}
+
+#poster {
+  position: absolute;      /* фиксируем позицию внутри .posters */
+  top: 50%;               /* вертикальный центр */
+  left: 50%;              /* горизонтальный центр */
+  transform: translate(-50%, -50%);  /* сдвигаем на 50% ширины и высоты */
+
+  width: 80%;             /* ширина карусели — можно менять */
+  max-width: 600px;       /* максимум */
+  height: auto;
+
+  z-index: 10;            /* чтобы была поверх картинки */
+  pointer-events: auto;   /* чтобы карусель оставалась интерактивной */
+}
+
+
+#cover .carousel-frame {
+  /* Твои текущие правила */
+  width: 80%;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*border: 2px solid rgb(0, 255, 170);  <-- вот это покажет границу */
+}
+
+#cover .carousel-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+span {
+  font-family: 'TTNormsPro';
+  color: #000;
+} 
+
+@font-face {
+    font-family: 'TTNormsPro';
+    src: url('./Fonts/TTNormsPro-Medium.eot'); 
+    src: url('./Fonts/TTNormsPro-Medium.woff2') format('woff2'),
+         url('./Fonts/TTNormsPro-Medium.woff') format('woff'),
+         url('./Fonts/TTNormsPro-Medium.ttf') format('truetype');
+}
+
+.only-mobile,
+.only-tablet,
+.only-desktop,
+.only-4k {
+  display: none; /* все специальные блоки скрыты по умолчанию */
+}
+
+
+/* 📱 Мобильные устройства */
+@media (max-width: 600px) {
+  body {
+    background-image: url("./Images/bg-small.webp"); /* фон для мобилки */
+  }
+
+  .only-mobile {
+    display: block; /* показываем только мобильный блок */
+  }
+}
+
+
+/* 📟 Планшеты */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-image: url("./Images/bg-medium.webp"); /* фон для планшета */
+  }
+
+  .only-tablet {
+    display: block; /* показываем только планшетный блок */
+  }
+}
+
+/* 🖥 Десктопы */
+@media (min-width: 1025px) and (max-width: 1920px) {
+  body {
+    background-image: url("./Images/bg-large.webp"); /* фон для пк */
+  }
+  .only-desktop {
+    display: block; /* показываем только блок для ПК */
+  }
+}
+
+/* 🖥 4K и широкоформатные */
+@media (min-width: 1921px) {
+  body {
+    background-image: url("./Images/bg-xlarge.webp"); /* фон для 4K */
+  }
+
+  .only-4k {
+    display: block; /* показываем только 4K-блок */
+  }
+}
+
+
